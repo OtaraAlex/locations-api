@@ -28,6 +28,8 @@ Example:
 DATABASE_URL=postgresql+psycopg://YOUR_USER:YOUR_PASSWORD@localhost:5432/kenya_locations
 ```
 
+On platforms like Render, the provided connection string is often `postgresql://...` (or sometimes `postgres://...`). This app now rewrites those to `postgresql+psycopg://...` automatically so it uses the installed Psycopg 3 driver instead of looking for `psycopg2`.
+
 If `DATABASE_URL` is missing or empty, the app will fail at startup with a clear error instead of using a fallback value.
 The committed `docker-compose.yml` is for local development only and uses local-only defaults for PostgreSQL. Do not reuse those credentials in production; keep your real deployment database URL in the environment settings of whatever platform hosts your API instead of committing it to the repository.
 5. Seed the data:

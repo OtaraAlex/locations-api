@@ -12,9 +12,14 @@ class Settings(BaseSettings):
     @field_validator("database_url")
     @classmethod
     def validate_database_url(cls, value: str) -> str:
-        if not value.strip():
+        normalized = value.strip()
+        if not normalized:
             raise ValueError("DATABASE_URL cannot be empty.")
-        return value
+        if normalized.startswith("postgresql://"):
+            return normalized.replace("postgresql://", "postgresql+psycopg://", 1)
+        if normalized.startswith("postgres://"):
+            return normalized.replace("postgres://", "postgresql+psycopg://", 1)
+        return normalized
 
     model_config = SettingsConfigDict(
         env_file=".env",
