@@ -12,7 +12,7 @@ router = APIRouter()
 @router.get("/", summary="API overview")
 def root() -> dict:
     return {
-        "message": "Kenya Locations API for the book exchange app",
+        "message": "Kenya Locations API for general location search and filtering",
         "version": settings.app_version,
         "docs": "/docs",
         "endpoints": {
@@ -97,4 +97,3 @@ def read_towns(db: Session = Depends(get_db)) -> FilterListResponse:
 def read_types(db: Session = Depends(get_db)) -> FilterListResponse:
     items = list_distinct_values(db, "location_type")
     return FilterListResponse(total=len(items), items=items)
-

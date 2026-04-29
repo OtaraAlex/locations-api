@@ -1,6 +1,8 @@
 # Kenya Locations API
 
 This project uses FastAPI with PostgreSQL models and a seed script for `locations.json`.
+The dataset contains general Kenya location data with searchable and filterable
+fields for categories, counties, towns, and location types.
 
 ## What is included
 

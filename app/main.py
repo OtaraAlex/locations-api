@@ -8,8 +8,8 @@ app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
     description=(
-        "A FastAPI backend for the Kenya locations dataset, structured to support "
-        "search and filtering patterns you can reuse in a book exchange app."
+        "A FastAPI backend for general Kenya location data, with searchable "
+        "and filterable fields for categories, counties, towns, and location types."
     ),
 )
 
@@ -20,4 +20,3 @@ def on_startup() -> None:
 
 
 app.include_router(router)
-
