@@ -44,6 +44,17 @@ python -m scripts.seed_locations
 uvicorn main:app --reload
 ```
 
+## Render deployment
+
+Set these environment variables on your Render service:
+
+```bash
+DATABASE_URL=postgresql://...
+PYTHON_VERSION=3.13
+```
+
+`PYTHON_VERSION` keeps the runtime stable across deploys. The dependencies are compatible with Python 3.13, and `sqlalchemy==2.0.45` includes Python 3.14 compatibility fixes for the mapped type annotations used by `app/models.py`.
+
 ## API endpoints
 
 - `GET /health`
