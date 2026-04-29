@@ -70,6 +70,8 @@ PYTHON_VERSION=3.13
 ## Example filters
 
 - `GET /locations?collection=shopping_malls`
+- `GET /locations?collection=cafes`
+- `GET /locations?collection=supermarkets`
 - `GET /locations?county=Nairobi`
 - `GET /locations?search=Karen`
 - `GET /locations?collection=universities&type=Private%20University`

@@ -32,7 +32,7 @@ def load_records() -> list[Location]:
     payload = json.loads(DATA_FILE.read_text(encoding="utf-8"))
     records: list[Location] = []
 
-    for collection_name in ("shopping_malls", "universities"):
+    for collection_name in ("shopping_malls", "universities", "cafes", "supermarkets"):
         for item in payload.get(collection_name, []):
             address = item.get("address") or {}
             coordinates = item.get("coordinates") or {}
